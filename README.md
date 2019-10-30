@@ -92,6 +92,9 @@ emailer.ToEmails.Add("yourself2@gmail.com");
 ```
 
 ### Adding sender/from Email Addresses
+There is a nuance with this part.  The Sender and the FromAddress will generally be the same, but they can be different.  If they are different then outlook displays things like this:
+![pic](https://github.com/gord888/HtmlEmailer/blob/master/ReadMe_Images/sender_fromemail.png?raw=true)
+
 ```csharp
 emailer.Sender = "user@host.net";
 emailer.FromAddress = "user@host.net";
@@ -103,12 +106,14 @@ emailer.Subject = "hello world";
 ```
 
 ### Applying Email Template(s)
+This is just horrible example code.  You should keep your template on the file system and use **File.ReadAllText("mytemplatefile.html")** rather than what is seen below.
 ```csharp
 emailer.HtmlBodyTemplate = "<html>  <head></head>  <body>    <h1>Hello __CUSTOMERNAME__</h1>    <p>Here is a cool image for you!</p>    <p><img src=\"cid:someimagecidname\" /></p>    <p>click <a href=\"__CLICKMEURL__\">here</a> for more.</p>  </body></html>";
 emailer.TextBodyTemplate = "Hello __CUSTOMERNAME__ You won't see an image, but we have a url for you! __CLICKMEURL__";
 ```
 
 ### Sending an Email
+Some tricky bits here.  It's the usual setup you'll have for your SmtpClient object.  
 ```csharp
 SmtpClient smtpClient = new SmtpClient();
 smtpClient.Host = "smtp.gmail.com";
@@ -120,6 +125,9 @@ smtpClient.UseDefaultCredentials = false;
 smtpClient.Credentials = new System.Net.NetworkCredential("*****@gmail.com", "******");
 
 smtpClient.EnableSsl = true;
+
+// generate the mail message!
+MailMessage mail = emailer.GenerateMail();
 
 // if you're using gmail and you get an authentication error message.  you may need to "allow less secure apps" on your google account.
 smtpClient.Send(mail);

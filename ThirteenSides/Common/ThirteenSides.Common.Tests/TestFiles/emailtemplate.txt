@@ -1,0 +1,22 @@
+﻿
+__TEXT_ONLY_HEADER__
+__INTRODUCTION_HEADER__
+__INTRODUCTION_SUB_HEADER__
+__INTRODUCTION__
+
+Left Stuff
+__BODY_LEFT_HEADER__
+__BODY_LEFT_BODY__
+
+Right Stuff
+__BODY_RIGHT_HEADER__
+__BODY_RIGHT_BODY__
+
+
+Register here:
+__REGISTERURL__
+
+
+
+
+Have a happy text-based email!

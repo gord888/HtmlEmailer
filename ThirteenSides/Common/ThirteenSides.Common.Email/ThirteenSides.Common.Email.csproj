@@ -13,6 +13,7 @@
     <PackageProjectUrl>https://github.com/gord888/HtmlEmailer</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/gord888/HtmlEmailer.git</RepositoryUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/gord888/HtmlEmailer/master/ReadMe_Images/nugeticon.png</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>
